@@ -1,0 +1,22 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "react",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitin027/React.git"
+  },
+  "author": "Nitin S Madhani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitin027/React/issues"
+  },
+  "homepage": "https://github.com/nitin027/React#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  }
+}
