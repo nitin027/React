@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>above div</h1>
+    <div id="root">
+        
+    </div>
+    <h4>below div</h4>
+    <!-- <script>
+        const heading = document.createElement("h1")
+        heading.innerHTML="h1 element created by JS"
+        const root = document.getElementById("root")
+        root.appendChild(heading)
+    </script> -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<!-- The above 2 script to load react library via cdn should be in sync then only the  below script tag 
+should be added other wise from below script nothing will be loaded in browser Reatc is just a library where we can load js into an
+html element just like we're doing in div with id root in this div only react will be loaded below this after this it can be plain html or js<script></script> -->
+    <script src="./App.js">
+       
+    </script>
+</body>
+</html>
