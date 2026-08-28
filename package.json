@@ -2,7 +2,7 @@
   "name": "react",
   "version": "1.0.0",
   "description": "react",
-  "main": "App.js",
+ 
   "scripts": {
     "test": "jest"
   },
@@ -18,5 +18,9 @@
   "homepage": "https://github.com/nitin027/React#readme",
   "devDependencies": {
     "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   }
 }
