@@ -11,6 +11,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import { createBrowserRouter,RouterProvider,Outlet } from "react-router";
+import AboutUs from "./components/AboutUs"
+import ContactUs from "./components/ContactUs";
+import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 //  const heading = React.createElement("h1",{},
 //     [React.createElement("span",{id:"ele1",key:"ele1"},"span inside h1"),
@@ -65,10 +70,37 @@ const AppLayout = ()=>{
     return (
         <div id="app">
             <Header />
-            <Body />
+            <Outlet />
         </div>
     )
 }
 
+const appRouter = createBrowserRouter([
+    {
+        path:'/',
+        element:<AppLayout/>,
+        children:[  
+    {
+        path:'/',
+        element:<Body />
+    },        
+    {
+        path:'/aboutus',
+        element:<AboutUs />
+    },
+    {
+        path:"/contactus",
+        element:<ContactUs />
+    },
+    {
+        path:'/restaurant/:resId',
+        element:<RestaurantMenu />
+    }
+    ],
+        errorElement:<Error />
+    },
+
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);

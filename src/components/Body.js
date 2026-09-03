@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard"
 import { restaurants } from "../../utils/mockData"
 import { useEffect, useState } from "react"
+import { Link } from "react-router"
 
 const Body = () => {
 // args would be an datatypes array,object,null any value second arg would be setcallback func(by default not added by coder)
@@ -49,11 +50,12 @@ console.log('called after component is rendered')
             </div>
             <div className="res-container">
                {
+               
                 listOfRestaurants.map((restaurant,index)=>{
                     // let abc='nitin' js declaration and initialization is allowed only in callback inside{} when its inside jsx other wise inside js{} not allowed
                     // console.log(abc)
-                  return ( <RestaurantCard  key={restaurant?.id} 
-                  resData={restaurant} />)
+                  return ( <Link key={restaurant?.id}  to={"/restaurant/"+restaurant?.id}><RestaurantCard  
+                  resData={restaurant} /></Link>)
                 })
                }
                  
