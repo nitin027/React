@@ -6,7 +6,7 @@
 //root.render will completely replace eveything if there is anything already
 //inside div ele with root id
 
-import React from "react";
+import React, { lazy, Suspense } from "react";
 //const React = require('react') this also work its sync in nature package is coming from node modules
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
@@ -16,6 +16,10 @@ import AboutUs from "./components/AboutUs"
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+//import { Grocery } from "./components/Grocery";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
+import { Cart } from "./components/Cart";
 
 //  const heading = React.createElement("h1",{},
 //     [React.createElement("span",{id:"ele1",key:"ele1"},"span inside h1"),
@@ -38,6 +42,7 @@ console.log(heading); // js object
 
 const Title = () => {
   return (
+    
     <span id="title" style={{ display: "block" }}>
       from title function component
     </span>
@@ -63,15 +68,25 @@ const Component = () => {
     //   <h2>heading h2</h2>
     //   </>
   );
-};
+}
+
+//Lazy loading
+//code splitting
+//Chunking
+//Dynamic Bundling
+//On demand loading
+
+const Grocery  = lazy(()=>{return import("./components/Grocery")})
 
 
 const AppLayout = ()=>{
     return (
+      <Provider store={appStore}>
         <div id="app">
             <Header />
             <Outlet />
         </div>
+       </Provider> 
     )
 }
 
@@ -95,6 +110,14 @@ const appRouter = createBrowserRouter([
     {
         path:'/restaurant/:resId',
         element:<RestaurantMenu />
+    },
+    {
+      path:'/grocery',
+      element:<Suspense fallback={<h1>Loading..</h1>}><Grocery/></Suspense>
+    },
+    {
+      path:'/cart',
+      element:<Cart />
     }
     ],
         errorElement:<Error />

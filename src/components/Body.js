@@ -22,9 +22,9 @@ console.log('called after component is rendered')
 
  console.log('called before useeffect as this is displayed during component is rendered')
     return (
-        <div className="body">
-            <div className="search">
-             <input type="text" id="search" onChange={(e)=>{
+        <div className="m-4">
+            <div >
+             <input className="border border-solid border-red-500 mb-4 px-2"  type="text" id="search" onChange={(e)=>{
                 console.log(e.target.value)
                  //setSeachText(e.target.value)
                const filteredRest = restaurants.filter((val)=> {
@@ -34,8 +34,8 @@ console.log('called after component is rendered')
                console.log(filteredRest)
               
                setListOfRestaurants(filteredRest)
-             }}></input><button><label htmlFor="search">Search</label></button>   
-            <button className="filter-btn" onClick={()=>{
+             }}></input><button className="m-2 p-2 bg-lime-300"><label htmlFor="search">Search</label></button>   
+            <button className="mx-2 m" onClick={()=>{
               const filteredRest= listOfRestaurants.filter((restaurant)=>{
                     if(restaurant.rating>4){
                         return true
@@ -48,7 +48,7 @@ console.log('called after component is rendered')
                 Top Rated 
             </button>
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                {
                
                 listOfRestaurants.map((restaurant,index)=>{

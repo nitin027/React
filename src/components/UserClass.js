@@ -23,7 +23,8 @@ export class UserClass extends React.Component {
         console.log('component is not in the dome similar to ngondestroy in angular')
         //clearInterval(this.timer)
     }
-  render() {
+    //render=()=>{} render=function(){} 
+ render() {
     const {name,email}=this.props
      console.log('render function call render phase 2')
     return (
